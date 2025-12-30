@@ -1,0 +1,3 @@
+"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\BouncyBall.dir/objects.a
+C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\BouncyBall.dir/objects.a @CMakeFiles\BouncyBall.dir\objects1.rsp
+C:\msys64\ucrt64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\BouncyBall.dir/objects.a -Wl,--no-whole-archive -o BouncyBall.exe -Wl,--out-implib,libBouncyBall.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\BouncyBall.dir\linkLibs.rsp
