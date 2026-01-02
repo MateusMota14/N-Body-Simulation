@@ -16,13 +16,12 @@ The simulation computes the force between bodies using:
 $$F = G \frac{m_1 m_2}{r^2}$$
 
 ### Velocity Verlet Method
-To ensure long-term orbital stability, this project utilizes the **Velocity Verlet** algorithm. Unlike standard Euler integration, this method is symplectic, meaning it better preserves the total energy of the system.
+To ensure long-term orbital stability, this project utilizes the **Velocity Verlet** algorithm. Unlike standard Euler integration, this method is symplectic, meaning it better preserves the total energy of the system. This simulation uses the **Stored-Acceleration** variant of the Velocity Verlet algorithm. This approach is mathematically equivalent to the standard form but optimized for systems where force calculation is computationally expensive:
 
 The state of each body is updated in three distinct steps:
-1.  **Update Position:** $$x(t + \Delta t) = x(t) + v(t)\Delta t + \frac{1}{2}a(t)\Delta t^2$$
-2.  **Half-step Velocity:** $$v(t + \frac{1}{2}\Delta t) = v(t) + \frac{1}{2}a(t)\Delta t$$
-3.  **Full-step Velocity:** (After computing new acceleration $a(t + \Delta t)$):
-    $$v(t + \Delta t) = v(t + \frac{1}{2}\Delta t) + \frac{1}{2}a(t + \Delta t)\Delta t$$
+1.  **Position Update:** Uses current velocity and acceleration.
+2.  **Velocity Update:** Uses the average of current and previous acceleration (Trapezoidal rule).
+3.  **Acceleration Storage:** The current acceleration is stored as `lastAcceleration` for use in the next time step.
 
 ## 🛠️ Technologies
 
@@ -34,29 +33,6 @@ The state of each body is updated in three distinct steps:
 
 You need the following installed:
 * A C++ compiler (GCC, Clang, or MSVC)
-* CMake (3.10+)
+* CMake
 * SFML Development Libraries
 
-## 🔨 Build and Installation
-
-1.  **Clone the repository**
-    ```bash
-    git clone [https://github.com/your-username/n-body-simulation.git](https://github.com/your-username/n-body-simulation.git)
-    cd n-body-simulation
-    ```
-
-2.  **Generate build files and compile**
-    ```bash
-    mkdir build && cd build
-    cmake ..
-    cmake --build .
-    ```
-
-3.  **Run the executable**
-    ```bash
-    ./n_body_simulation
-    ```
-
-## 📜 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
