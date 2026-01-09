@@ -47,7 +47,7 @@ int main() {
         }
 
         float tempE = static_cast<float>(Physics::e);
-        if (ImGui::SliderFloat("Elasticity Constant (e)", &tempE, 0.0f, 1.0f)) {
+        if (ImGui::SliderFloat("Coefficient of Restitution (e)", &tempE, 0.0f, 1.0f)) {
             Physics::e = static_cast<double>(tempE);
         }
 
