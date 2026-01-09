@@ -2,6 +2,8 @@
 
 A high-performance **N-Body Simulation** developed in C++. This project simulates gravitational interactions between multiple celestial bodies in a 2D environment, focusing on numerical stability and real-time visualization.
 
+##Note on usage: When setting the initial conditions it is helpful to set frequency of updates to 0 so that the planets don't move. 
+
 ## 🚀 Features
 
 * **Gravitational Physics:** Accurate simulation based on Newton's Law of Universal Gravitation.
