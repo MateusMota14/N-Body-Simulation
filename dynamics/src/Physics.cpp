@@ -16,9 +16,7 @@ void Physics:: handleInteraction(Body& a, Body& b ){
     else applyGravity(a, b, diff, distSq);
 }
 
-void Physics:: applyGravity(Body& a, Body& b, const Vector2& diff, double sqr) {
-    double G = 40000;
-    
+void Physics:: applyGravity(Body& a, Body& b, const Vector2& diff, double sqr) {    
     double force = (G * a.mass * b.mass)/sqr;
         
     a.acceleration = a.acceleration + diff*(force/a.mass);    
@@ -35,8 +33,6 @@ void Physics:: handleCollision(Body& a, Body& b, const Vector2& diff, double ove
     a.position = a.position - diff * (moveMag / a.mass);
     b.position = b.position + diff * (moveMag / b.mass);
     
-    
-    double e = 1.0;
     double v1 = a.velocity.x*m + n*a.velocity.y;
     double v2 = b.velocity.x*m + n*b.velocity.y;
 
